@@ -23,16 +23,13 @@ function App() {
 
 		const run = async () => {
 			await toast.promise(
-				fetch(
-					'https://ema-john-simple-928c9-default-rtdb.asia-southeast1.firebasedatabase.app/products.json',
-					{
-						method: 'PUT',
-						body: JSON.stringify({
-							items: cart.items,
-							totalQuantity: cart.totalQuantity,
-						}),
-					}
-				),
+				fetch(`${import.meta.env.VITE_firebaseLink}/products.json`, {
+					method: 'PUT',
+					body: JSON.stringify({
+						items: cart.items,
+						totalQuantity: cart.totalQuantity,
+					}),
+				}),
 				{
 					success: 'Cart Upload Successful',
 					pending: 'Cart is uploading',

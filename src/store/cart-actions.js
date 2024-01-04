@@ -4,9 +4,7 @@ import { cartActions } from './cart';
 const fetchCart = () => {
 	return async (dispatch) => {
 		const response = await toast.promise(
-			fetch(
-				'https://ema-john-simple-928c9-default-rtdb.asia-southeast1.firebasedatabase.app/products.json'
-			),
+			fetch(`${import.meta.env.VITE_firebaseLink}/products.json`),
 			{
 				pending: 'Cart data is fetching.',
 				success: 'Cart data fetched successfully.',
